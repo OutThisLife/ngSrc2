@@ -15,6 +15,4 @@ app.directive 'ngSrc2', ->
 				el.attr 'src', img.src
 				el.removeClass 'loading'
 
-		scope.$watch ->
-			attrs.ngSrc2
-		, (nv, ov) -> loadImage() unless nv is ov
+		attrs.$observe 'ngSrc2', (nv, ov) -> loadImage() unless nv is ov
